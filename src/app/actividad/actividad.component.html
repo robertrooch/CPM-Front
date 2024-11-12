@@ -1,0 +1,62 @@
+<div id="actividades">
+  <div class="row">
+    <div class="col-md-4">
+      <label for="nombre">Nombre actividad</label>
+    </div>
+    <div class="col-md-3">
+      <label for="duracion">Duración</label>
+    </div>
+    <div class="col-md-4">
+      <label for="predecesores">Predecesores</label>
+    </div>
+    <div class="col-md-1 text-center">
+      <label for="">Eliminar</label>
+    </div>
+  </div>
+  <div
+    class="row"
+    *ngFor="let actividad of actividades; let i = index"
+    [attr.id]="'actividad_' + i"
+  >
+    <div class="col-md-4">
+      <input
+        type="text"
+        name="nombre"
+        [(ngModel)]="actividad.nombre"
+        class="form-control nombre"
+      />
+    </div>
+    <div class="col-md-3">
+      <input
+        type="number"
+        name="duracion"
+        [(ngModel)]="actividad.duracion"
+        class="form-control duracion"
+      />
+    </div>
+    <div class="col-md-4">
+      <input
+        type="text"
+        name="predecesores"
+        [(ngModel)]="actividad.predecesores"
+        class="form-control predecesores"
+      />
+    </div>
+    <div class="col-md-1 text-center" id="div-eliminar">
+      <button class="btn btn-danger" (click)="eliminarActividad(i)">X</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-center">
+      <button class="btn btn-success" (click)="nuevaActividad()">
+        Añadir actividad
+      </button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col text-center">
+      <button class="btn btn-primary mt-3" (click)="guardarActividades()">Guardar actividades</button>
+    </div>
+  </div>
+</div>
