@@ -1,0 +1,23 @@
+<div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+  
+  <div *ngIf="successMessage" class="alert alert-success">
+    {{ successMessage }}
+  </div>
+  
+  <h3>Crear Nuevo Proyecto</h3>
+  
+  <form (ngSubmit)="guardarProyecto()" #proyectoForm="ngForm">
+    <div class="form-group">
+      <label for="nombre">Nombre del Proyecto</label>
+      <input type="text" id="nombre" class="form-control" [(ngModel)]="proyecto.nombre" name="nombre" required>
+    </div>
+  
+    <div class="form-group">
+      <label for="descripcion">Descripción del Proyecto</label>
+      <textarea id="descripcion" class="form-control" [(ngModel)]="proyecto.descripcion" name="descripcion" required></textarea>
+    </div>
+  
+    <button type="submit" class="btn btn-primary" [disabled]="!proyectoForm.form.valid">Guardar Proyecto</button>
+  </form>

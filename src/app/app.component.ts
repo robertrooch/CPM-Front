@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'CPM-Front';
+  vistaActual: string = ''; 
+  mostrarMenu: boolean = false;
+
+  mostrarVista(vista: string): void {
+    this.vistaActual = vista;
+    this.mostrarMenu = false;
+  }
 }

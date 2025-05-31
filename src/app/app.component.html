@@ -1,8 +1,26 @@
-<!-- Encabezado principal del formulario -->
-<app-encabezado></app-encabezado>
+<div *ngIf="!mostrarMenu" class="text-center">
+    <h1>Calculo de ruta critica CPM</h1>
+    <button class="btn btn-primary" (click)="mostrarMenu = true">Mostrar Menú</button>
+  </div>
+  
+  <div *ngIf="mostrarMenu" class="text-center">
+    <h2>Seleccione una opción</h2>
+    <button class="btn btn-info" (click)="mostrarVista('actividad')">Actividades</button>
+    <button class="btn btn-info" (click)="mostrarVista('nuevoProyecto')">Nuevo Proyecto</button>
+    <button class="btn btn-info" (click)="mostrarVista('proyectos')">Proyectos Guardados</button>
+    <button class="btn btn-secondary" (click)="mostrarMenu = false">Cerrar Menú</button>
+  </div>
+  
+  <div *ngIf="vistaActual === 'actividad'">
+    <app-actividad></app-actividad>
+    <app-diagrama></app-diagrama>
+  </div>
 
-<!-- Sección de actividades: permite agregar y eliminar actividades -->
-<app-actividad></app-actividad>
-
-<!-- Sección para generar y visualizar el diagrama -->
-<app-diagrama></app-diagrama>
+  <div *ngIf="vistaActual === 'nuevoProyecto'">
+    <app-proyecto></app-proyecto>
+  </div>
+   
+  <div *ngIf="vistaActual === 'proyectos'">
+    <app-proyectos-guardados></app-proyectos-guardados>
+  </div>
+  

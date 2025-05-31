@@ -1,0 +1,55 @@
+<div *ngIf="errorMessage" class="alert alert-danger">
+  {{ errorMessage }}
+</div>
+
+<div *ngIf="proyectosGuardados.length > 0">
+  <h3>Proyectos Guardados</h3>
+  <ul>
+    <li *ngFor="let proyecto of proyectosGuardados" (click)="onProyectoSeleccionado(proyecto.id)">
+      {{ proyecto.nombre }}
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="actividadesGuardadas.length > 0">
+  <h3>Actividades del Proyecto: {{ proyectoSeleccionado?.nombre }}</h3>
+  <table class="table table-bordered">
+    <caption>Tabla para añadir cada actividad que hace el proyecto</caption>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Duración</th>
+        <th>Inicio Temprano</th>
+        <th>Fin Temprano</th>
+        <th>Inicio Tardío</th>
+        <th>Fin Tardío</th>
+        <th>Holgura Total</th>
+        <th>Crítica</th>
+        <th>Predecesores</th>
+        <th>Sucerores</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let actividad of actividadesGuardadas">
+        <td>{{ actividad.nombre }}</td>
+        <td>{{ actividad.duracion }}</td>
+        <td>{{ actividad.estart }}</td>
+        <td>{{ actividad.efinish }}</td>
+        <td>{{ actividad.lstart }}</td>
+        <td>{{ actividad.lfinish }}</td>
+        <td>{{ actividad.htotal }}</td>
+        <td>{{ actividad.es_critica ? 'Sí' : 'No' }}</td>
+        <td>{{ actividad.predecesores }}</td>
+        <td>{{ actividad.sucesores }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="proyectosGuardados.length === 0" class="alert alert-info">
+  No hay proyectos guardados en la base de datos.
+</div>
+
+<div *ngIf="actividadesGuardadas.length === 0" class="alert alert-info">
+  No hay actividades asociadas a este proyecto.
+</div>
