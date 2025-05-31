@@ -1,15 +1,21 @@
 <div id="actividades">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-2">
       <label for="nombre">Nombre actividad</label>
     </div>
-    <div class="col-md-3">
-      <label for="duracion">Duración</label>
+    <div class="col-md-2">
+      <label for="tiempoOptimista">Tiempo Optimista</label>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-2">
+      <label for="tiempoMasProbable">Tiempo Más Probable</label>
+    </div>
+    <div class="col-md-2">
+      <label for="tiempoPesimista">Tiempo Pesimista</label>
+    </div>
+    <div class="col-md-2">
       <label for="predecesores">Predecesores</label>
     </div>
-    <div class="col-md-1 text-center">
+    <div class="col-md-2 text-center">
       <label for="">Eliminar</label>
     </div>
   </div>
@@ -18,7 +24,7 @@
     *ngFor="let actividad of actividades; let i = index"
     [attr.id]="'actividad_' + i"
   >
-    <div class="col-md-4">
+    <div class="col-md-2">
       <input
         type="text"
         name="nombre"
@@ -26,15 +32,31 @@
         class="form-control nombre"
       />
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <input
         type="number"
-        name="duracion"
-        [(ngModel)]="actividad.duracion"
-        class="form-control duracion"
+        name="tiempoOptimista"
+        [(ngModel)]="actividad.tiempoOptimista"
+        class="form-control tiempo-optimista"
       />
     </div>
-    <div class="col-md-4">
+    <div class="col-md-2">
+      <input
+        type="number"
+        name="tiempoMasProbable"
+        [(ngModel)]="actividad.tiempoMasProbable"
+        class="form-control tiempo-mas-probable"
+      />
+    </div>
+    <div class="col-md-2">
+      <input
+        type="number"
+        name="tiempoPesimista"
+        [(ngModel)]="actividad.tiempoPesimista"
+        class="form-control tiempo-pesimista"
+      />
+    </div>
+    <div class="col-md-2">
       <input
         type="text"
         name="predecesores"
@@ -42,7 +64,7 @@
         class="form-control predecesores"
       />
     </div>
-    <div class="col-md-1 text-center" id="div-eliminar">
+    <div class="col-md-2 text-center" id="div-eliminar">
       <button class="btn btn-danger" (click)="eliminarActividad(i)">X</button>
     </div>
   </div>

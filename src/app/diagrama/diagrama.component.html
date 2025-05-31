@@ -6,6 +6,22 @@
         <button class="btn btn-primary" (click)="generarDiagrama()">Generar diagrama</button>
     </div>
 </div>
+
+<div class="row mt-3">
+    <div class="col text-center">
+        <label for="proyectoSelect">Selecciona un Proyecto:</label>
+        <select id="proyectoSelect" class="form-control" [(ngModel)]="selectedProyectoId">
+            <option *ngFor="let proyecto of proyectos" [value]="proyecto.id">{{ proyecto.nombre }}</option>
+        </select>
+    </div>
+</div>
+
 <div class="row">
     <div class="col" id="diagrama"></div>
+</div>
+
+<div class="row mt-3">
+    <div class="col text-center">
+        <button class="btn btn-success" (click)="guardarActividades()">Guardar en base de datos</button>
+    </div>
 </div>
